@@ -45,8 +45,8 @@ MYSQL_PASSWORD = os.environ.get("MYSQL_PASSWORD", '-')
 MYSQL_PORT = os.environ.get("MYSQL_PORT", '3306')
 # ==========数据库配置 结束=====================
 
-LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", 'zh-hans')
-# #LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", 'en')
+# LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", 'zh-hans')
+LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", 'de')
 
 # Application definition
 
@@ -140,9 +140,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-# LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'de'
 
-TIME_ZONE = 'Asia/Shanghai'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -166,6 +166,8 @@ else:
 LANGUAGES = (
     ('zh-hans', '中文简体'),
     ('en', 'English'),
+    ('de', 'Deutsch'), 
+
 
 )
 
