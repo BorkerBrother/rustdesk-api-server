@@ -7,6 +7,11 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import gettext as _
 
+class InstalledSoftwareAdmin(admin.ModelAdmin):
+    list_display = ('device', 'software_name', 'software_version', 'install_date')
+    search_fields = ('software_name', 'software_version', 'device__hostname')
+    list_filter = ('software_name', 'software_version', 'install_date')
+    ordering = ('device', 'software_name')
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -96,6 +101,7 @@ admin.site.register(models.RustDesDevice, models.RustDesDeviceAdmin)
 admin.site.register(models.ShareLink, models.ShareLinkAdmin)
 admin.site.register(models.ConnLog, models.ConnLogAdmin)
 admin.site.register(models.FileLog, models.FileLogAdmin)
+admin.site.register(models.InstalledSoftware, InstalledSoftwareAdmin)
 admin.site.unregister(Group)
 admin.site.site_header = _('RustDesk自建Web')
 admin.site.site_title = _('未定义')

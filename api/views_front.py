@@ -211,6 +211,11 @@ def get_single_info(uid):
         peers[rid]['cpu'] = device.cpu
         peers[rid]['os'] = device.os
         peers[rid]['status'] = _('在线') if (now - device.update_time).seconds <= 120 else _('离线')
+        # Installierte Software abrufen
+        installed_software = InstalledSoftware.objects.filter(device=device)
+        software_list = [model_to_dict2(soft) for soft in installed_software]
+        peers_dict[rid]['installed_software'] = software_list
+
 
     for rid in peers.keys():
         peers[rid]['has_rhash'] = _('是') if len(peers[rid]['rhash']) > 1 else _('否')

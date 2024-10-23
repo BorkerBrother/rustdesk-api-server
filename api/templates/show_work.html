@@ -27,6 +27,7 @@
                 <th>{{ "注册时间" | translate }}</th>
                 <th>{{ "更新时间" | translate }}</th>
                 <th>{{ "状态" | translate }}</th>
+                <th>{{ "Installierte Software" | translate }}</th> 
               </tr>
             </thead>
             <tbody>
@@ -46,6 +47,17 @@
                 <td>{{one.create_time}}</td>
                 <td>{{one.update_time}}</td>
                 <td>{{one.status}} </td>
+                <td>
+                  {% if one.installed_software %}
+                    <ul>
+                      {% for software in one.installed_software %}
+                        <li>{{ software.software_name }} - {{ software.software_version }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    {{ "Keine Daten verfügbar" | translate }}
+                  {% endif %}
+                </td>
               </tr>
               {% endfor %}
             </tbody>
@@ -95,6 +107,8 @@
                 <th>{{ "注册日期" | translate }}</th>
                 <th>{{ "更新时间" | translate }}</th>
                 <th>{{ "状态" | translate }}</th>
+                <th>{{ "Installierte Software" | translate }}</th> 
+
               </tr>
             </thead>
             <tbody>
@@ -113,6 +127,17 @@
                 <td>{{one.create_time}} </td>
                 <td>{{one.update_time}} </td>
                 <td>{{one.status}} </td>
+                <td>
+                  {% if one.installed_software %}
+                    <ul>
+                      {% for software in one.installed_software %}
+                        <li>{{ software.software_name }} - {{ software.software_version }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    {{ "Keine Daten verfügbar" | translate }}
+                  {% endif %}
+                </td>
               </tr>
               {% endfor %}
             </tbody>
