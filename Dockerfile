@@ -16,7 +16,7 @@ RUN set -ex \
     && cp -r ./db ./db_bak
 
 ENV HOST="0.0.0.0"
-ENV TZ="Asia/Shanghai"
+ENV TZ="Europe/Berlin"
 
 EXPOSE 21114/tcp
 EXPOSE 21114/udp

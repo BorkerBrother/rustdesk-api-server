@@ -214,7 +214,7 @@ def get_single_info(uid):
         # Installierte Software abrufen
         installed_software = InstalledSoftware.objects.filter(device=device)
         software_list = [model_to_dict2(soft) for soft in installed_software]
-        peers_dict[rid]['installed_software'] = software_list
+        peers[rid]['installed_software'] = software_list
 
 
     for rid in peers.keys():
