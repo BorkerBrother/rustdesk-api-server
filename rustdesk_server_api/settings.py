@@ -29,7 +29,7 @@ ID_SERVER = os.environ.get("ID_SERVER", '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] 
 AUTH_USER_MODEL = 'api.UserProfile'      # AppName.自定义user
 
 ALLOW_REGISTRATION = os.environ.get("ALLOW_REGISTRATION", "True")          # 是否允许注册, True为允许，False为不允许
