@@ -152,12 +152,16 @@ class ShareLinkAdmin(admin.ModelAdmin):
     search_fields = ('peers', )
     list_filter = ('is_used', 'uid', 'is_expired')
 
+
 class InstalledSoftware(models.Model):
-    device = models.ForeignKey(RustDesDevice, on_delete=models.CASCADE)
     software_name = models.CharField(max_length=255)
     software_version = models.CharField(max_length=50)
-    install_date = models.DateField(null=True, blank=True)
-    
+    install_date = models.DateField(blank=True, null=True)
+    device = models.ForeignKey(RustDesDevice, on_delete=models.CASCADE, related_name='installed_software')
+
     class Meta:
-        verbose_name = _("Installierte Software")
-        verbose_name_plural = _("Installierte Software")
+        verbose_name = 'Installierte Software'
+        verbose_name_plural = 'Installierte Software'
+
+    def __str__(self):
+        return f"{self.software_name} ({self.software_version})"

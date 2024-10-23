@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
-from api.models import RustDeskPeer, RustDesDevice, UserProfile, ShareLink, ConnLog, FileLog
+from api.models import RustDeskPeer, RustDesDevice, UserProfile, ShareLink, ConnLog, FileLog, InstalledSoftware
 from django.forms.models import model_to_dict
 from django.core.paginator import Paginator
 from django.http import HttpResponse
